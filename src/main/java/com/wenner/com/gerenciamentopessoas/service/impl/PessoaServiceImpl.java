@@ -6,6 +6,7 @@ import com.wenner.com.gerenciamentopessoas.resource.dto.MessageResponseDTO;
 import com.wenner.com.gerenciamentopessoas.resource.dto.PessoaDTO;
 import com.wenner.com.gerenciamentopessoas.service.PessoaService;
 import com.wenner.com.gerenciamentopessoas.service.exception.RecursoNaoEncontradoException;
+import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,17 +15,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PessoaServiceImpl implements PessoaService {
 
-    private PessoaRepository pessoaRepository;
+    private final  PessoaRepository pessoaRepository;
     private final ModelMapper modelMapper;
-
-
-    @Autowired
-    public PessoaServiceImpl(PessoaRepository pessoaRepository, ModelMapper modelMapper) {
-        this.pessoaRepository = pessoaRepository;
-        this.modelMapper = modelMapper;
-    }
 
     @Override
     public MessageResponseDTO save(PessoaDTO dto) {
