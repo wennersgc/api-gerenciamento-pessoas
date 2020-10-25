@@ -31,10 +31,7 @@ public class PessoaServiceImpl implements PessoaService {
         Pessoa pessoa = modelMapper.map(dto, Pessoa.class);
         Pessoa savePessoa = this.pessoaRepository.save(pessoa);
 
-        return MessageResponseDTO
-                .builder()
-                .mensagem("Pessoa criada com sucesso: id " + savePessoa.getId())
-                .build();
+        return createMessageResponse(savePessoa.getId(), "Pessoa criada com sucesso: id ");
     }
 
     @Override
@@ -55,9 +52,25 @@ public class PessoaServiceImpl implements PessoaService {
     }
 
     @Override
+    public MessageResponseDTO updateById(Long id, PessoaDTO dto) {
+        Pessoa pessoa = verificaSePessoaExiste(id);
+        pessoa = modelMapper.map(dto, Pessoa.class);
+        Pessoa pessoaUpdate = this.pessoaRepository.save(pessoa);
+
+        return createMessageResponse(pessoaUpdate.getId(), "Pessoa atualizada com sucesso: id ");
+    }
+
+    @Override
     public void delete(Long id) {
         Pessoa pessoa = verificaSePessoaExiste(id);
         this.pessoaRepository.delete(pessoa);
+    }
+
+    private MessageResponseDTO createMessageResponse(Long id, String message) {
+        return MessageResponseDTO
+                .builder()
+                .mensagem(message + id)
+                .build();
     }
 
     private Pessoa verificaSePessoaExiste(Long id) {

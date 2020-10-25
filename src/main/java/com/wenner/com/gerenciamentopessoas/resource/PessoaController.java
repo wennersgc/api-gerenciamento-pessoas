@@ -38,6 +38,11 @@ public class PessoaController {
         return this.pessoaService.findById(id);
     }
 
+    @PutMapping("/{id}")
+    public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody PessoaDTO dto) {
+        return this.pessoaService.updateById(id, dto);
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus (HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) {

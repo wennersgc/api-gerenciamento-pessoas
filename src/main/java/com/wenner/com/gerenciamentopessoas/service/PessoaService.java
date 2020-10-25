@@ -13,4 +13,6 @@ public interface PessoaService {
     PessoaDTO findById(Long id);
 
     void delete(Long id);
+
+    MessageResponseDTO updateById(Long id, PessoaDTO dto);
 }
