@@ -45,5 +45,5 @@ public class PessoaDTO {
 
     @Valid
     @NotEmpty
-    private List<Telefone> telefones;
+    private List<TelefoneDTO> telefones;
 }
