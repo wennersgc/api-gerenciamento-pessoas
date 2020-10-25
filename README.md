@@ -4,7 +4,7 @@
 > Esse sistema não deve ser usado em uma aplicação real.
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://opensource.org/licenses/MIT)
-[![Version](https://badge.fury.io/gh/tterb%2FHyde.svg)](https://github.com/wennersgc/library-api)
+[![Version](https://badge.fury.io/gh/tterb%2FHyde.svg)](https://github.com/wennersgc/api-gerenciamento-pessoas)
 
 ## Instalação
 
